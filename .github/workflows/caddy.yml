@@ -1,4 +1,4 @@
-name: My Workflow
+name: Caddy Build Pipeline
 
 on:
   workflow_dispatch:  # This enables the manual trigger
@@ -7,5 +7,6 @@ jobs:
   build_image:
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
+      image: "draftm0de/kernel.caddy:latest"
       context: "caddy"
       build_args: ".build_args"
