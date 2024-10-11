@@ -12,4 +12,6 @@ jobs:
       tag: "latest"
       context: "caddy"
       build_args: ".build_args"
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
       
