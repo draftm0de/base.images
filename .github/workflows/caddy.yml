@@ -7,7 +7,7 @@ jobs:
   checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the child repository (this repo)
+      - name: Check out the child repository
         uses: actions/checkout@v4
         with:
           path: content  # Checkout child repo into the "content" directory
