@@ -8,7 +8,8 @@ jobs:
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
       namespace: "draftm0de"
-      image: "kernel.caddy:latest"
+      image: "kernel.caddy"
+      tag: "latest"
       context: "caddy"
       build_args: ".build_args"
       
