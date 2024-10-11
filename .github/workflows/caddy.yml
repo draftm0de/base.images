@@ -4,14 +4,19 @@ on:
   workflow_dispatch:  # This enables the manual trigger
 
 jobs:
-  build:  
-    uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
-    with:
-      namespace: "draftm0de"
-      image: "kernel.caddy"
-      tag: "latest"
-      context: "caddy"
-      build_args: ".build_args"
-      docker_username: ${{ secrets.DOCKER_USERNAME }}
-      docker_password: ${{ secrets.DOCKER_PASSWORD }}
-      
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Call Kernel Deployment Build Workflow
+        uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
+        with:
+          namespace: "draftm0de"
+          image: "kernel.caddy"
+          tag: "latest"
+          context: "caddy"
+          build_args: ".build_args"
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
