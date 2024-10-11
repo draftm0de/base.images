@@ -4,18 +4,10 @@ on:
   workflow_dispatch:  # This enables the manual trigger
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the child repository
-        uses: actions/checkout@v4
-        with:
-          path: content  # Checkout child repo into the "content" directory
-
   build:  
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
       image: "draftm0de/kernel.caddy:latest"  # Docker image name
-      context: "content/caddy"  # Path where the child repo is checked out
+      context: "caddy"
       build_args: ".build_args"
       
