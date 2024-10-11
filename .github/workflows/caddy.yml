@@ -5,8 +5,17 @@ on:
 
 jobs:
   build_image:
-    uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
-    with:
-      image: "draftm0de/kernel.caddy:latest"
-      context: "caddy"
-      build_args: ".build_args"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out current repository and mount
+        uses: actions/checkout@v3
+        with:
+          path: content
+
+      - name: Use Parent Repository Workflow to Build Docker Image
+        uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
+        with:
+          image: "draftm0de/kernel.caddy:latest"
+          context: "/content/caddy"
+          build_args: ".build_args"
