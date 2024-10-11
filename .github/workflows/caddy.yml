@@ -8,7 +8,7 @@ jobs:
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
       image: "draftm0de/kernel.caddy:latest"  # Docker image name
-      context: "content"  # Path where the child repo is checked out
+      context: "content/caddy"  # Path where the child repo is checked out
       build_args: ".build_args"
       
   checkout:
