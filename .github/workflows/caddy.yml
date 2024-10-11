@@ -13,7 +13,7 @@ jobs:
           path: content  # Checkout child repo into the "content" directory
 
       - name: List files in /content
-        run: ls /content -la
+        run: ls content -la
 
   build:
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
