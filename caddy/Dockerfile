@@ -1,7 +1,8 @@
-FROM caddy
+ARG VERSION
+FROM caddy:${VERSION}
 
-ARG TIME_ZONE
-ENV TZ=${TIME_ZONE}
+ARG TZ
+ENV TZ=${TZ}
 
 ENV APK_ADD="tzdata nss-tools curl"
 
