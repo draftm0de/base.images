@@ -7,7 +7,8 @@ jobs:
   build:  
     uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
-      image: "draftm0de/kernel.caddy:latest"  # Docker image name
+      namespace: "draftm0de"
+      image: "kernel.caddy:latest"
       context: "caddy"
       build_args: ".build_args"
       
