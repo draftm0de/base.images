@@ -13,7 +13,7 @@ jobs:
           path: content  # Checkout child repo into the "content" directory
 
   build:
-    uses: username/parent-repo/.github/workflows/deployment.yml@main  # Call the reusable workflow
+    uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
     with:
       image: "draftm0de/kernel.caddy:latest"  # Docker image name
       mount: "/content/caddy"  # Path where the child repo is checked out
