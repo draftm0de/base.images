@@ -4,12 +4,13 @@ on:
   workflow_dispatch:  # This enables the manual trigger
     inputs:
       sha_protection:
-        description: "Tagging and Pushing protect already existing SHA"
+        description: "Protect duplicate tagging and pushing"
         type: choice
         required: false
         options:
           - true
           - false
+        default: "false"
 
 jobs: 
   build:
