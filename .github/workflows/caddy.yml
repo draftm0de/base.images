@@ -2,15 +2,6 @@ name: Caddy Build Pipeline
 
 on:
   workflow_dispatch:  # This enables the manual trigger
-    inputs:
-      sha_protection:
-        description: "Protect duplicate tagging and pushing"
-        type: choice
-        required: false
-        options:
-          - true
-          - false
-        default: "false"
 
 jobs: 
   build:
@@ -21,6 +12,7 @@ jobs:
       tag: "latest"
       context: "caddy"
       build_args: ".build_args"
+      sha_protection: "true"
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
