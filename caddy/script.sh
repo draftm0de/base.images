@@ -32,7 +32,7 @@ echo "[Notice] > latest remote tag for $BUILT_IMAGE_NAME: $LATEST_TAG"
 echo "[Notice] Tag docker image"
 LATEST_TAG=""
 # TAGS=$("${SCRIPT_PATH}/docker.sh" "image tag" "$BUILT_IMAGE_NAME" "$REPOSITORY:${LATEST_TAG:-0.0.0}" "--tag-increase=1.2" "--tag-level=3")
-TAGS=$("${SCRIPT_PATH}/docker.sh" "image tag" "$BUILT_IMAGE_NAME" "$REPOSITORY:$LATEST_TAG" "--tag-increase" "--tag-level=3")
+TAGS=$("${SCRIPT_PATH}/docker.sh" "image tag" "$BUILT_IMAGE_NAME" "$REPOSITORY:${LATEST_TAG:-0.0.0}" "--tag-increase=0.0" "--tag-level=3")
 echo "[Notice] > docker image tagged successfully"
 
 echo "[Notice] Push docker images"
