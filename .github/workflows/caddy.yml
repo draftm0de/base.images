@@ -10,9 +10,9 @@ jobs:
       namespace: "draftmode"
       image: "kernel.caddy"
       context: "caddy"
-      build_args: ".build_args"
+      build_args_file: ".build_args"
       tag_level: 3
-      tag_base_version: ".version"
+      tag_base_version_file: ".version"
       protected_tag: "latest"
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
