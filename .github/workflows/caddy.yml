@@ -20,4 +20,5 @@ jobs:
       image: "kernel.caddy"    
       context: "caddy"
       artifact_name: "artifact"
-      severity: "CRITICAL,HIGH"      
+      severity: "CRITICAL,HIGH" 
+      scanners: "vuln,secret,misconfig,license"
