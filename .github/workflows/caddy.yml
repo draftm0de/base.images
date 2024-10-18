@@ -12,6 +12,7 @@ jobs:
       context: "caddy"
       build_args_file: ".build_args"
       artifact_name: "artifact"
+      
   protection:
     uses: draftm0de/kernel.deployment/.github/workflows/sha-protection.yml@main
     with:
@@ -20,6 +21,7 @@ jobs:
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      
 #  scan-trivy:
 #    needs: build 
 #    uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
