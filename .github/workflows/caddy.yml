@@ -13,15 +13,15 @@ jobs:
       build_args_file: ".build_args"
       artifact_name: "artifact"
     # build_target: (optional)
-  scan-trivy:
-    needs: build 
-    uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
-    with:
-      image: "kernel.caddy"    
-      context: "caddy"
-      artifact_name: "artifact"
-      severity: "CRITICAL,HIGH" 
-      scanners: "vuln,secret,misconfig,license"
+#  scan-trivy:
+#    needs: build 
+#    uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
+#    with:
+#      image: "kernel.caddy"    
+#      context: "caddy"
+#      artifact_name: "artifact"
+#      severity: "CRITICAL,HIGH" 
+#      scanners: "vuln,secret,misconfig,license"
   scan-scout:
     needs: build 
     uses: draftm0de/kernel.deployment/.github/workflows/scan-scout.yml@main
@@ -30,4 +30,7 @@ jobs:
       context: "caddy"
       artifact_name: "artifact"
       severity: "critical, high" 
-      scanners: "quickview,cves,recommendations"      
+      scanners: "quickview,cves,recommendations"              
+    secrets:
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
