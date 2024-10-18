@@ -5,16 +5,19 @@ on:
 
 jobs: 
   build:
-    uses: draftm0de/kernel.deployment/.github/workflows/build-workflow.yml@main
+    uses: draftm0de/kernel.deployment/.github/workflows/build.yml@main
     with:
       namespace: "draftmode"
       image: "kernel.caddy"
       context: "caddy"
       build_args_file: ".build_args"
-      build_artifact: true
-#      tag_level: 3
-#      tag_base_version_file: ".version"
-#      protected_tag: "latest"
-#    secrets:
-#      docker_username: ${{ secrets.DOCKER_USERNAME }}
-#      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      artifact_name: "artifact"
+    # build_target: (optional)
+  scan:
+    needs: build 
+    uses: draftm0de/kernel.deployment/.github/workflows/scan.yml@main
+    with:
+      image: "kernel.caddy"    
+      context: "caddy"
+      artifact_name: "artifact"
+      severity: "CRITICAL,HIGH"      
