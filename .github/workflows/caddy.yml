@@ -15,7 +15,7 @@ jobs:
     # build_target: (optional)
   scan:
     needs: build 
-    uses: draftm0de/kernel.deployment/.github/workflows/scan.yml@main
+    uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
     with:
       image: "kernel.caddy"    
       context: "caddy"
