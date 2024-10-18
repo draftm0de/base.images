@@ -22,15 +22,3 @@ jobs:
       artifact_name: "artifact"
       severity: "CRITICAL,HIGH" 
       scanners: "vuln,secret,misconfig,license"
-#  scan-scout:
-#    needs: build 
-#    uses: draftm0de/kernel.deployment/.github/workflows/scan-scout.yml@main
-#    with:
-#      image: "kernel.caddy"    
-#      context: "caddy"
-#      artifact_name: "artifact"
-#      severity: "critical, high" 
-#      scanners: "quickview,cves,recommendations"              
-#    secrets:
-#      docker_username: ${{ secrets.DOCKER_USERNAME }}
-#      docker_password: ${{ secrets.DOCKER_PASSWORD }}
