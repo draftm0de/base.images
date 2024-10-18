@@ -13,7 +13,7 @@ jobs:
       build_args_file: ".build_args"
       artifact_name: "artifact"
     # build_target: (optional)
-  scan:
+  scan-trivy:
     needs: build 
     uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
     with:
@@ -22,3 +22,12 @@ jobs:
       artifact_name: "artifact"
       severity: "CRITICAL,HIGH" 
       scanners: "vuln,secret,misconfig,license"
+  scan-scout:
+    needs: build 
+    uses: draftm0de/kernel.deployment/.github/workflows/scan-scout.yml@main
+    with:
+      image: "kernel.caddy"    
+      context: "caddy"
+      artifact_name: "artifact"
+      severity: "critical, high" 
+      scanners: "quickview,cves,recommendations"      
