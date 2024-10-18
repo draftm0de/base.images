@@ -11,7 +11,7 @@ jobs:
       image: "kernel.caddy"
       context: "caddy"
       build_args_file: ".build_args"
-      artifact_name: "image.artifacts"
+      build_artifact: true
 #      tag_level: 3
 #      tag_base_version_file: ".version"
 #      protected_tag: "latest"
