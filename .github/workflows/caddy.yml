@@ -7,7 +7,7 @@ jobs:
   build:
     uses: draftm0de/kernel.deployment/.github/workflows/build.yml@main
     with:
-      image_namespace: "draftm0de"
+      image_namespace: "draftmode"
       image_name: "kernel.caddy"
       image_tag: "latest"
       # build_target:
@@ -19,15 +19,14 @@ jobs:
     needs: build
     uses: draftm0de/kernel.deployment/.github/workflows/push.yml@main
     with:
-      image_namespace: "draftm0de"
+      image_namespace: "draftmode"
       image_name: "kernel.caddy"
       image_tag: "latest"
       protect: true
       artifact: "artifact"
-    secrets:
-      docker_username: ${{ secrets.DOCKER_USERNAME }}
-      docker_password: ${{ secrets.DOCKER_PASSWORD }}
-      
+      dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+
 #  scan-trivy:
 #    needs: build 
 #    uses: draftm0de/kernel.deployment/.github/workflows/scan-trivy.yml@main
