@@ -25,7 +25,6 @@ jobs:
       protect: true
       artifact: "artifact"
     secrets:
-      dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
       dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
 
 #  scan-trivy:
