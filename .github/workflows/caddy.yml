@@ -7,7 +7,7 @@ jobs:
   build:
     uses: draftm0de/kernel.deployment/.github/workflows/build.yml@main
     with:
-      image_namespace: "draftmode"
+      image_namespace: "draftm0de"
       image_name: "kernel.caddy"
       image_tag: "latest"
       # build_target:
@@ -19,7 +19,7 @@ jobs:
     needs: build
     uses: draftm0de/kernel.deployment/.github/workflows/push.yml@main
     with:
-      image_namespace: "draftmode"
+      image_namespace: "draftm0de"
       image_name: "kernel.caddy"
       image_tag: "latest"
       protect: true
