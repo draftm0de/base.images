@@ -3,21 +3,26 @@ name: Caddy Build Pipeline
 on:
   workflow_dispatch:  # This enables the manual trigger
 
-jobs: 
+jobs:
   build:
     uses: draftm0de/kernel.deployment/.github/workflows/build.yml@main
     with:
-      namespace: "draftmode"
-      image: "kernel.caddy"
-      context: "caddy"
+      image_namespace: "draftmode"
+      image_name: "kernel.caddy"
+      image_tag: "latest"
+      # build_target:
+      build_context: "caddy"
       build_args_file: ".build_args"
       artifact: "artifact"
       
-  protection:
+  push:
     needs: build
-    uses: draftm0de/kernel.deployment/.github/workflows/sha-protection.yml@main
+    uses: draftm0de/kernel.deployment/.github/workflows/push.yml@main
     with:
-      image: "kernel.caddy"
+      image_namespace: "draftmode"
+      image_name: "kernel.caddy"
+      image_tag: "latest"
+      protect: true
       artifact: "artifact"
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
