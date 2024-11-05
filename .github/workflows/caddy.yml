@@ -15,17 +15,17 @@ jobs:
       build_args_file: ".build_args"
       artifact: "artifact"
       
-#  push:
-#    needs: build
-#    uses: draftm0de/kernel.deployment/.github/workflows/push.yml@main
-#    with:
-#      image_namespace: "draftmode"
-#      image_name: "kernel.caddy"
-#      image_tag: "latest"
-#      protect: true
-#      artifact: "artifact"
-#    secrets:
-#      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+  push:
+    needs: build
+    uses: draftm0de/kernel.deployment/.github/workflows/push.yml@main
+    with:
+      image_namespace: "draftmode"
+      image_name: "kernel.caddy"
+      image_tag: "latest"
+      protect: true
+      artifact: "artifact"
+    secrets:
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
 
 #  scan-trivy:
 #    needs: build 
